@@ -33,9 +33,9 @@ public class Ejecutor {
                     break;
                 case 1:
                     System.out.println("\nPostulacion para Prestamo Automovil");
-                    PrestamoAutomovil prestamoAuto1 = crearObjeto_PrestamoAutomovil(sc);
+                    PrestamoAutomovil prestamoAuto1 = Object_PrestamoAutomovil(sc);
                     prestamoAuto1.setCiudadPrestamo();
-                    prestamoAuto1.calcularValorMensualPagoAutomovil();
+                    prestamoAuto1.calcularValorMAutomovil();
                     listap.add(prestamoAuto1);
                     break;
                 case 2:
@@ -59,55 +59,77 @@ public class Ejecutor {
                     break;
             }
         }
-        
     }
     
-    public static PrestamoAutomovil crearObjeto_PrestamoAutomovil (Scanner teclado){
-        //Persona y Prestamo
-        System.out.println("INGRESE DATOS DEL BENEFICIARIO");
-        teclado.nextLine();
-        System.out.print("Nombre: "); String nombreB = teclado.nextLine();
-        System.out.print("Apellido: "); String apellidoB = teclado.nextLine();
-        System.out.print("Username: "); String userNameB = teclado.nextLine();
-        Persona beneficiario = new Persona(nombreB, apellidoB, userNameB);
-        System.out.print("Ingrese el Tiempo de prestamo en meses: "); double meses = teclado.nextDouble();
-        teclado.nextLine();
-        System.out.print("Ingrese la Ciudad del prestamo: "); String ciudad = teclado.nextLine();
-        //Prestamo new = Prestamo(beneficiario, meses, ciudad);
-        //PERSONA
-        System.out.println("INGRESE DATOS DEL GARANTE 1"); 
-        System.out.print("Nombre: "); String nombreG = teclado.nextLine();
-        System.out.print("Apellido: "); String apellidoG = teclado.nextLine();
-        System.out.print("Username: "); String userNameG = teclado.nextLine();
-        Persona garante1 = new Persona(nombreG, apellidoG, userNameG);
+    public static PrestamoAutomovil Object_PrestamoAutomovil (Scanner teclado){
+        String nombreB, apellidoB, userNameB, ciudad, nombreG, apellidoG, userNameG;
+        String tipoAutomovil, marcaAutomovil;
+        double meses, valorAutomovil;
         
-        //PrestamoAutomovil
-        System.out.println("INGRESE DATOS DEL AUTOMOVIL");
-        System.out.print("Tipo: "); String tipoAutomovil = teclado.nextLine();
-        System.out.print("Marca :"); String marcaAutomovil = teclado.nextLine();
-        System.out.print("Valor del Automovil: "); double valorAutomovil = teclado.nextDouble();
+        teclado.nextLine();
+        System.out.println("Ingrese los datos del beneficiario");
+        System.out.print("Nombre: ");
+        nombreB = teclado.nextLine();
+        System.out.print("Apellido: ");
+        apellidoB = teclado.nextLine();
+        System.out.print("Username: ");
+        userNameB = teclado.nextLine();
+        
+        Persona beneficiario = new Persona(nombreB, apellidoB, userNameB);
+        System.out.print("Ingrese en meses de cuanto tiempo desea el prestmo: ");
+        meses = teclado.nextDouble();
+        teclado.nextLine();
+        System.out.print("Ingrese la Ciudad del prestamo: ");
+        ciudad = teclado.nextLine();
+        
+        System.out.println("Ingrese datos del garante"); 
+        System.out.print("Nombre: ");
+        nombreG = teclado.nextLine();
+        System.out.print("Apellido: ");
+        apellidoG = teclado.nextLine();
+        System.out.print("Username: ");
+        userNameG = teclado.nextLine();
+        
+        Persona garante1 = new Persona(nombreG, apellidoG, userNameG);
+        System.out.println("Ingrese los datos del automovil");
+        System.out.print("Tipo del auto: ");
+        tipoAutomovil = teclado.nextLine();
+        System.out.print("Marca del auto:");
+        marcaAutomovil = teclado.nextLine();
+        System.out.print("Valor del auto: ");
+        valorAutomovil = teclado.nextDouble();
         return new PrestamoAutomovil (tipoAutomovil, marcaAutomovil, garante1, valorAutomovil,beneficiario, meses, ciudad);
     }
     
     public static PrestamoEducativo crearObjeto_PrestamoEducativo(Scanner teclado){
-        //PersonaBeneficiaria y Prestamo
-        System.out.println("INGRESE DATOS DEL BENEFICIARIO");
-        teclado.nextLine();
-        System.out.print("Nombre: "); String nombreB = teclado.nextLine();
-        System.out.print("Apellido: "); String apellidoB = teclado.nextLine();
-        System.out.print("Username: "); String userNameB = teclado.nextLine();
-        Persona beneficiario = new Persona(nombreB, apellidoB, userNameB);
+        String nombreB, apellidoB, nombreusuarioB, ciudad, nombreC, siglasC;
+        double meses, valorCarrera;
         
-        System.out.print("Ingrese el Tiempo de prestamo en meses: "); double meses = teclado.nextDouble();
         teclado.nextLine();
-        System.out.print("Ingrese la Ciudad del prestamo: "); String ciudad = teclado.nextLine();
-        //PrestamoEducativo
+        System.out.println("Ingrese los datos del beneficiario");
+        System.out.print("Nombre: ");
+        nombreB = teclado.nextLine();
+        System.out.print("Apellido: ");
+        apellidoB = teclado.nextLine();
+        System.out.print("Username: ");
+        nombreusuarioB = teclado.nextLine();
+        Persona beneficiario = new Persona(nombreB, apellidoB, nombreusuarioB);
+        
+        System.out.print("Ingrese en meses de cuanto tiempo desea el prestmo: ");
+        meses = teclado.nextDouble();
+        teclado.nextLine();
+        System.out.print("Ingrese la Ciudad del prestamo: ");
+        ciudad = teclado.nextLine();
+        
         System.out.print("Nivel de Estudio: "); String nivelEstudio = teclado.nextLine();
-        System.out.print("Valor de la carrera: "); double valorCarrera = teclado.nextDouble();
+        System.out.print("Valor de la carrera: ");
+        valorCarrera = teclado.nextDouble();
         teclado.nextLine();
-        System.out.println("INGRESE DATOS DEL CENTRO EDUCATIVO");
-        System.out.print("Nombre:"); String nombreC = teclado.nextLine();
-        System.out.print("Siglas:"); String siglasC = teclado.nextLine();
+        System.out.println("Ingrese los datos del centro educativo");
+        System.out.print("Nombre:");
+        nombreC = teclado.nextLine();
+        System.out.print("Siglas:");
+        siglasC = teclado.nextLine();
         InstitucionEducativa centroEducativo = new  InstitucionEducativa (nombreC,siglasC);
         return new PrestamoEducativo(nivelEstudio, centroEducativo, valorCarrera, beneficiario, meses, ciudad);
     }

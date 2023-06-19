@@ -2,14 +2,14 @@ package paquete2;
 
 public class Prestamo {
     public Persona beneficiario;
-    public double tiempoMeses;
+    public double tMeses;
     public String ciudadPrestamo;
 
     public Prestamo() {}
 
-    public Prestamo(Persona beneficiario, double tiempoMeses, String ciudadPrestamo) {
+    public Prestamo(Persona beneficiario, double tMeses, String ciudadPrestamo) {
         this.beneficiario = beneficiario;
-        this.tiempoMeses = tiempoMeses;
+        this.tMeses = tMeses;
         this.ciudadPrestamo = ciudadPrestamo;
     }
 
@@ -19,9 +19,10 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return "-- Beneficiario: --\n" + 
-                beneficiario.toString() +
-                "Tiempo de prestamo en meses = " + tiempoMeses + "\n" +
-                "Ciudad del prestamo = " + ciudadPrestamo + "\n";
+        return beneficiario.toString() +
+                "\nBeneficiario\n" +
+                "============\n" +
+                "El tiempo del prestamo en meses es: " + tMeses + "\n" +
+                "La ciudad del prestamo: " + ciudadPrestamo + "\n";
     }
 }

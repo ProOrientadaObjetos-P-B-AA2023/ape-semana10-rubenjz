@@ -12,7 +12,7 @@ public class InstitucionEducativa {
     
     @Override
     public String toString() {
-        return "\nNombre = " + nombre + 
-                "\nSiglas = " + siglas ;
+        return "\nNombre: " + nombre + 
+                "\nSiglas: " + siglas;
     }
 }
